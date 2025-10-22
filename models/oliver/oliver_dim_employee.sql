@@ -5,7 +5,7 @@
 }}
 
 SELECT
-Employee_ID as Store_Key,
+Employee_ID as Employee_Key,
 Employee_ID,
 First_Name,
 Last_Name,
