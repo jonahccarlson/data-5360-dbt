@@ -11,3 +11,7 @@ models:
     description:  "Oliver Product Dimension"
   - name: oliver_dim_store
     description: "Oliver Store Dimension"
+  - name: fact_sales
+    description: "Sales Fact. Grain: Individual sale."
+  - name: fact_certification
+    description: "Certification Fact. Grain: Individual certification of an employee."
