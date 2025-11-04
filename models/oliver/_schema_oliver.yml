@@ -3,8 +3,16 @@ version: 2
 models:
   - name: oliver_dim_customer
     description: "Oliver Customer Dimension"
+    columns: 
+    - name: Cust_Key
+      tests: 
+        - unique
   - name: oliver_dim_date
     description: "Oliver Date Dimension"
+    columns:
+    - name: Date_Key
+      tests:
+        - not_null
   - name: oliver_dim_employee
     description: "Oliver Employee Dimension"
   - name: oliver_dim_product
@@ -15,3 +23,23 @@ models:
     description: "Sales Fact. Grain: Individual sale."
   - name: fact_certification
     description: "Certification Fact. Grain: Individual certification of an employee."
+    columns:
+    - name: Certification_Name
+      tests:
+        - accepted_values:
+            values:
+            - "Leadership and Coaching"
+            - "Point of Sale Operations"
+            - "Inventory Management"
+            - "Conflict Resolution"
+            - "Strategic Retail Operations"
+            - "Workplace Safety"
+            - "Product Knowledge Level 2"
+            - "Cash Handling and Security"
+            - "Customer Service Excellence"
+            - "Conflict Resolution"
+    - name: Employee_Key
+      tests:
+        - relationships:
+            to: ref('oliver_dim_employee') # the model you want to compare to
+            field: Employee_Key # field you want to compare to
